@@ -1,0 +1,154 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "right",
+
+	"modules-left": [
+		"hyprland/workspaces",
+		"wlr/taskbar"
+	],
+	"modules-center": [
+		"clock#2",
+		"clock#3",
+	],
+	"modules-right": [
+		"custom/left-arrow-dark",
+		"pulseaudio",
+		"backlight",
+//		"network",
+		"memory",
+		"custom/gpu-utilization",
+//		"custom/gpu-temperature",
+		"cpu",
+//		"temperature",
+		"custom/left-arrow-dark",
+		"battery",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"tray"
+	],
+
+	"hyprland/workspaces": {
+		"disable-scroll": true,
+		"format": "{name}"
+	},
+
+	"clock#1": {
+		"format": "{:%a}",
+		"tooltip": false
+	},
+	"clock#2": {
+		"format": "{:%H:%M:%S}",
+		"tooltip": false,
+		"interval": 1,
+	},
+	"clock#3": {
+		"format": "{:%d%b25}",
+		"tooltip": false,
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume:2}%",
+		"format-bluetooth": "{icon}  {volume}%",
+		"format-muted": "MUTE",
+		"format-icons": {
+			"headphones": "",
+			"default": [
+				"",
+				""
+			]
+		},
+		"scroll-step": 5,
+		"on-click": "pamixer -t",
+		"on-click-right": "pavucontrol"
+	},
+	"memory": {
+		"interval": 5,
+		"format": " {}%",
+		"format-icons": [
+			""
+		]
+	},
+	"cpu": {
+		"interval": 5,
+		"format": "{icon} {usage:2}%",
+		"format-icons": [
+			""
+		]
+	},
+	"temperature": {
+		"interval": 5,
+		"format": "{icon} {temperatureC}°C",
+		"format-icons": [
+			""
+		]
+	},
+	
+	"custom/gpu-utilization": {
+		"interval": 5,
+  		"exec":"nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+  		"format": "GPU: {}%",
+		"format-icons": [
+			"G"
+		],
+		"tooltip-format": "GPU temp, and stuff", 
+		"on-click-right": "nvidia-settings"
+	},
+	"custom/gpu-temperature": {
+		"interval": 5,
+  		"exec":"nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+  		"format": "GPU: {}°C",
+		"format-icons": [
+			"G"
+		]
+	},
+	"battery": {
+//		"bat": "BAT1",
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"backlight": {
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"",
+		 	""
+		]
+	},
+	"disk": {
+		"interval": 5,
+		"format": "Disk {percentage_used:2}%",
+		"path": "/"
+	},
+	"tray": {
+		"icon-size": 20
+	},
+	"wlr/taskbar": {
+        	"format": "{icon}",
+        	"icon-size": 20,
+        	"on-click-middle": "close",
+        	"tooltip-format": "{title}",
+        	"ignore-list": [],
+        	"on-click": "activate"
+	},
+
+	"network": {
+		"format-wifi": " {signalStrength}%", 
+        	"format-ethernet": " {ipaddr}/{cidr}",
+	        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    }
+}
