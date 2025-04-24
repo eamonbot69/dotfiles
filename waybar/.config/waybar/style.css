@@ -4,18 +4,9 @@
 }
 
 window#waybar {
-	background: #292b2e;
-	color: #fdf6e3;
-}
-
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
-	color: #1a1a1a;
-}
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-	color: #292b2e;
-	background: #1a1a1a;
+	background-color:rgba(0,0,0,0);
+	border: none;
+	color: white;
 }
 
 #workspaces,
@@ -34,9 +25,10 @@ window#waybar {
 #taskbar,
 #network,
 #backlight {
-	background: #1a1a1a;
+	background-color:rgba(0,0,0,0.3);
+	border: none;
+	color: white;
 }
-
 #workspaces button {
 	padding: 0 2px;
 	color: #fdf6e3;
