@@ -1,91 +1,83 @@
 * {
 	font-size: 12px;
-	font-family: monospace;
+	font-family: "JetBrainsMono Nerd Font", "Fira Code", "Hack", "monospace";
+	border: none;
+	border-radius: 8px;
+	padding: 0 0px;
+	background: transparent;
+	color: #D8DEE9; /* nord4 */
 }
-
 window#waybar {
-	background-color:rgba(0,0,0,0);
-	border: none;
-	color: white;
+  background-color: rgba(46, 52, 64, 0.5); /* nord0 */
 }
 
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
-#pulseaudio,
-#memory,
-#cpu,
-#temperature,
-#custom-gpu-utilization,
-#custom-gpu-temperature,
-#battery,
-#disk,
-#tray, 
-#taskbar,
-#network,
-#backlight {
-	background-color:rgba(0,0,0,0.3);
-	border: none;
-	color: white;
+#custom-bat.high {
+	color: #A3BE8C; /* nord green */
 }
+#custom-cpu.cool,	
+#custom-gpu.cool {
+	color: #81A1C1; /*nord9 blue*/
+}
+#custom-bat.mid,
+#custom-cpu.warm,
+#custom-gpu.warm {
+	color: #EBCB8B; /*nord13 yellow*/
+}
+#custom-bat.low,
+#custom-cpu.hot,
+#custom-gpu.hot {
+	color: #BF616A; /*nord11 red*/
+}
+
+/* Modules */
 #workspaces button {
-	padding: 0 2px;
-	color: #fdf6e3;
+  background: transparent;
+  color: #D8DEE9; /* nord4 */
+  padding: 2 0px;
 }
 
-#workspaces button.active {
-	color: #268bd2;
-}
-
-#workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
-}
-#workspaces button:hover {
-	background: #1a1a1a;
-	border: #1a1a1a;
-	padding: 0 3px;
-}
-
-#pulseaudio {
-	color: #268bd2;
-}
-#memory {
-	color: #2aa198;
-}
-#cpu {
-	color: #6c71c4;
-}
-#temperature {
-	color: #6c71c4;
-}
-#custom-gpu-utilization {
-	color: #ffffff;
-}
-#custom-gpu-temperature {
-	color: #ffffff;
-}
-#battery {
-	color: #859900;
-}
-#disk {
-	color: #b58900;
-}
-#backlight {
-	color: #b58900;
+#workspaces button.focused {
+  background: #434C5E; /* nord2 */
+  border-radius: 6px;
+  color: #88C0D0; /* nord8 */
 }
 
 #clock,
-#pulseaudio,
-#memory,
-#cpu,
-#temperature,
-#custom-gpu-utilization,
-#custom-gpu-temperature,
 #battery,
-#disk,
-#taskbar,
-#backlight {
-	padding: 0 10px;
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#backlight,
+#tray,
+#custom-gpu,
+#custom-cpu,
+#custom-bat {
+  background-color: #3B4252; /* nord1 */
+  margin: 4px 0px;
+  padding: 10px 0px;
+  border-radius: 6px;
 }
+
+/* Hover effects */
+#workspaces button:hover,
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#custom-gpu:hover,
+#custom-cpu:hover,
+#custom-batteries:hover {
+  background: #434C5E; /* nord2 */
+}
+
+/* Tooltip */
+tooltip {
+  background: #3B4252; /* nord1 */
+  border: 1px solid #4C566A; /* nord3 */
+  color: #ECEFF4; /* nord6 */
+}
+

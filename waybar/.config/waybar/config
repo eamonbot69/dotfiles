@@ -18,12 +18,11 @@
 		"backlight",
 //		"network",
 		"memory",
-		"custom/gpu-utilization",
-//		"custom/gpu-temperature",
+		"custom/gpu",
 		"cpu",
-//		"temperature",
+//		"custom/cpu",
 		"custom/left-arrow-dark",
-		"battery",
+		"custom/bat",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"tray"
@@ -64,47 +63,33 @@
 		"on-click-right": "pavucontrol"
 	},
 	"memory": {
-		"interval": 5,
+		"interval": 20,
 		"format": " {}%",
 		"format-icons": [
 			""
 		]
 	},
 	"cpu": {
-		"interval": 5,
+		"interval": 10,
 		"format": "{icon} {usage:2}%",
 		"format-icons": [
 			""
 		]
 	},
-	"temperature": {
-		"interval": 5,
-		"format": "{icon} {temperatureC}°C",
-		"format-icons": [
-			""
-		]
+	"custom/cpu": {
+		"interval": 10,
+		"format": "󰻠 {temperatureC}°C"
 	},
 	
-	"custom/gpu-utilization": {
-		"interval": 5,
-  		"exec":"nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
-  		"format": "GPU: {}%",
-		"format-icons": [
-			"G"
-		],
-		"tooltip-format": "GPU temp, and stuff", 
+	"custom/gpu": {
+		"interval": 10,
+  		"exec":"~/.config/waybar/scripts/gpu.sh",
+		"return-type": "json",
+		"tooltip": true,
+  		"format": "󰘚 {}",
 		"on-click-right": "nvidia-settings"
 	},
-	"custom/gpu-temperature": {
-		"interval": 5,
-  		"exec":"nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
-  		"format": "GPU: {}°C",
-		"format-icons": [
-			"G"
-		]
-	},
 	"battery": {
-//		"bat": "BAT1",
 		"states": {
 			"good": 95,
 			"warning": 30,
@@ -119,6 +104,13 @@
 			""
 		]
 	},
+	"custom/bat": {
+		"interval": 60,
+		"exec": "~/.config/waybar/scripts/bat.sh",
+		"return-type": "json",
+		"format": "{}",
+		"tooltip": true
+	},
 	"backlight": {
 		"format": "{icon} {percent}%",
 		"format-icons": [
@@ -127,7 +119,7 @@
 		]
 	},
 	"disk": {
-		"interval": 5,
+		"interval": 20,
 		"format": "Disk {percentage_used:2}%",
 		"path": "/"
 	},
