@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wallpaper_dir="$HOME/Pictures/wallpapers/"
+wallpaper_dir=$HOME/.config/hypr/nord/
 current_wall=$(hyprctl hyprpaper listloaded)
 
 function main() {

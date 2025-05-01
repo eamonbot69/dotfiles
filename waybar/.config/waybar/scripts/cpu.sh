@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# Get per-core utilization (average over 1 second)
-cpu_util=$(mpstat -P ALL 1 1 | awk '/^[0-9]/ && $3 ~ /[0-9]+/ {printf "Core %s: %.1f%%\n", $3, 100 - $12}')
+temp=$(sensors | grep -m 1 'Package id 0:' | awk '{gsub("[+°C]", "", $4); print int($4)}')
+util=$(top -bn1 | awk '/Cpu/ {printf("%d\n", 100-$8)}')
 
-# Get CPU temperature(s)
-temps=$(sensors | awk '/Core [0-9]+:/ {print $1 " " $2 " " $3}')
+if [ "$temp" -lt 50 ]; then
+	class="cool"
+elif [ "$temp" -lt 70 ]; then
+	class="warm"
+else	
+	class="hot"
+fi
 
-echo -e "$cpu_util\n\n$temps"
-
+echo "{\"text\": \"${util}%\", \"tooltip\": \"CPU Temp: ${temp}°C\n${util}%\", \"class\": \"$class\"}"

@@ -19,18 +19,21 @@
 //		"network",
 		"memory",
 		"custom/gpu",
-		"cpu",
-//		"custom/cpu",
+//		"cpu",
+		"custom/cpu",
 		"custom/left-arrow-dark",
 		"custom/bat",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
 		"tray"
 	],
 
 	"hyprland/workspaces": {
-		"disable-scroll": true,
-		"format": "{name}"
+		"all-outputs": true,
+		"format": "{icon}{name}",
+		"format-icons": {
+			"active":  "󰄯",
+            		"default": "",
+           	 	"empty":   "󱥸"
+		}		
 	},
 
 	"clock#1": {
@@ -64,10 +67,7 @@
 	},
 	"memory": {
 		"interval": 20,
-		"format": " {}%",
-		"format-icons": [
-			""
-		]
+		"format": " {}%"
 	},
 	"cpu": {
 		"interval": 10,
@@ -78,7 +78,10 @@
 	},
 	"custom/cpu": {
 		"interval": 10,
-		"format": "󰻠 {temperatureC}°C"
+		"exec":"~/.config/waybar/scripts/cpu.sh",
+		"return-type": "json",
+		"format": "󰻠 {}",
+		"tooltip": true
 	},
 	
 	"custom/gpu": {
