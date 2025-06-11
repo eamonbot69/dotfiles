@@ -9,6 +9,7 @@
 		"wlr/taskbar"
 	],
 	"modules-center": [
+		"clock#1",
 		"clock#2",
 		"clock#3",
 	],
@@ -46,7 +47,7 @@
 		"interval": 1,
 	},
 	"clock#3": {
-		"format": "{:%d%b25}",
+		"format": "{:%d%b%y}",
 		"tooltip": false,
 	},
 

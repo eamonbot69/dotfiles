@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WALLPAPER_DIR=$HOME/.config/hypr/nord/
+WALLPAPER_DIR=$HOME/.config/hypr/star-citizen/
 CURRENT_WALL=$(hyprctl hyprpaper listloaded)
 
 # Get a random wallpaper that is not the current one

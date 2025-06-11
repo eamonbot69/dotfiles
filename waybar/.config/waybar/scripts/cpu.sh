@@ -11,4 +11,4 @@ else
 	class="hot"
 fi
 
-echo "{\"text\": \"${util}%\", \"tooltip\": \"CPU Temp: ${temp}°C\n${util}%\", \"class\": \"$class\"}"
+echo "{\"text\": \"${util}%\", \"tooltip\": \"CPU Temp: ${temp}°C\nCPU Util: ${util}%\", \"class\": \"$class\"}"
