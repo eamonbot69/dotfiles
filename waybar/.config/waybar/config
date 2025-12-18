@@ -14,7 +14,6 @@
 		"clock#3",
 	],
 	"modules-right": [
-		"custom/left-arrow-dark",
 		"pulseaudio",
 		"backlight",
 //		"network",
@@ -22,7 +21,6 @@
 		"custom/gpu",
 //		"cpu",
 		"custom/cpu",
-		"custom/left-arrow-dark",
 		"custom/bat",
 		"tray"
 	],
